@@ -1,0 +1,10 @@
+streamlit==1.26.0
+streamlit-option-menu==0.3.2
+pillow==9.4.0  # PIL fue renombrado a Pillow
+numpy==1.26.0
+tensorflow==2.13.0
+matplotlib==3.8.0
+opencv-python==4.8.0.76
+lime==0.2.0.1
+scikit-image==0.21.0
+pandas==2.1.3
