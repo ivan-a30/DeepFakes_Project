@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
-import cv2
+
 from lime import lime_image
 from skimage.segmentation import mark_boundaries
 import matplotlib.pyplot as plt
@@ -78,22 +78,6 @@ def preprocess_image(image):
     image_array = np.array(image) / 255.0  # Normalizar los píxeles
     return image_array
 
-# Función para tomar una foto usando la cámara
-def take_photo():
-    cap = cv2.VideoCapture(0)  # Abrir la cámara
-    st.write("Abriendo cámara...")
-    ret, frame = cap.read()
-    if ret:
-        st.write("Foto tomada.")
-        cap.release()
-        cv2.destroyAllWindows()
-        image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        return image
-    else:
-        st.write("Error al acceder a la cámara.")
-        cap.release()
-        cv2.destroyAllWindows()
-        return None
 
 # Función para aplicar LIME
 @st.cache_data
@@ -162,9 +146,7 @@ if selected2 == "Clasificador":
 
     elif input_mode == "Tomar foto":
         if st.sidebar.button("Tomar foto"):
-            image = take_photo()
-            if image:
-                st.sidebar.image(image, caption="Foto tomada", use_column_width=True)
+            st.sidebar.write("Esta función estará disponible proximamente")
 
     if image is not None:
         # Preprocesar la imagen
