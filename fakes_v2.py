@@ -163,9 +163,9 @@ if selected2 == "Clasificador":
         
         # Mostrar un mensaje emergente con la clasificación
         if predicted_class == "Deepfake":
-            st.error("⚠️ ¡Cuidado! La imagen es Deepfake. Confianza: {confidence:.2%}")
+            st.error(f"⚠️ ¡Cuidado! La imagen es Deepfake. Confianza: {confidence:.2%}")
         else:
-            st.success("✅ No te preocupes, la imagen es verdadera. Confianza: {confidence:.2%}")
+            st.success(f"✅ No te preocupes, la imagen es verdadera. Confianza: {confidence:.2%}")
 
         # Aplicar LIME
         st.write("Generando explicaciones con LIME, por favor espere...")
