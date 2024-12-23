@@ -20,7 +20,7 @@ placeholder.text("Cargando modelo, por favor espere...")
 # Diccionario de enlaces de Google Drive para modelos
 model_drive_links = {
     "VGG": "<URL_DEL_MODELO_VGG>",  # Reemplaza con el enlace de Google Drive
-    "ResNet50": "<URL_DEL_MODELO_RESNET50>",  # Reemplaza con el enlace de Google Drive
+    "ResNet50": "https://drive.google.com/file/d/1F2PWzz968SgDgF_iXKhpcIWBUme1IkNv/view?usp=sharing",  # Reemplaza con el enlace de Google Drive
     "Inception": "https://drive.google.com/uc?id=1iHJK3UA1gHDfMXB_EvhxDwOjbluUsMFk"
 }
 
