@@ -20,7 +20,7 @@ placeholder.text("Cargando modelo, por favor espere...")
 # Diccionario de enlaces de Google Drive para modelos
 
 model_drive_links = {
-    "VGG": "<URL_DEL_MODELO_VGG>",  # Reemplaza con el enlace de Google Drive
+    "VGG": "https://drive.google.com/uc?id=1F2PWzz968SgDgF_iXKhpcIWBUme1IkNv",  # Reemplaza con el enlace de Google Drive
     "ResNet50": "https://drive.google.com/uc?id=1F2PWzz968SgDgF_iXKhpcIWBUme1IkNv",  # Reemplaza con el enlace de Google Drive
     "Inception": "https://drive.google.com/uc?id=1iHJK3UA1gHDfMXB_EvhxDwOjbluUsMFk"
 }
@@ -60,7 +60,7 @@ def load_model_from_drive(model_name):
         st.write(f"Descargando el modelo {model_name} desde Google Drive...")
         gdown.download(model_link, model_path, quiet=False)
 
-    st.write(f"Cargando el modelo {model_name}...")
+    #st.write(f"Cargando el modelo {model_name}...")
     return tf.keras.models.load_model(model_path)
 
 # Placeholder para el modelo
@@ -110,7 +110,7 @@ with st.sidebar:
         menu_icon="cast", default_index=0)
 
 if selected2 == "Clasificador":
-    st.title("Clasificación de Imágenes: Real vs Deepfake")
+    #st.title("Clasificación de Imágenes: Real vs Deepfake")
     
     # Seleccionar modelo
     option = st.sidebar.selectbox(
@@ -118,13 +118,12 @@ if selected2 == "Clasificador":
         ("VGG", "ResNet50", "Inception")
     )
 
-    # Mostrar descripción del modelo seleccionado
-    st.write(f"### Descripción detallada del modelo {option}")
-    st.write(model_details[option]["detailed_description"])
-    st.image(model_details[option]["image"], caption=option, use_column_width=True)
-
+    st.title(f"Clasificación con el modelo {option}")
     # Cargar el modelo correspondiente desde Google Drive
+    status_placeholder = st.empty()
+    status_placeholder.error(f"Cargando el modelo **{option}**, por favor espere...")
     model = load_model_from_drive(option)
+    status_placeholder.success(f"El modelo **{option}** se ha cargado correctamente. Ahora puede cargar una imagen para clasificar.")
 
     # Sidebar para seleccionar modo de entrada
     st.sidebar.title("Opciones de entrada")
@@ -139,7 +138,7 @@ if selected2 == "Clasificador":
         if uploaded_file is not None:
             # Mostrar la imagen cargada
             image = Image.open(uploaded_file)
-            st.sidebar.image(image, caption="Imagen cargada", use_column_width=True)
+            st.sidebar.image(image, caption="Imagen cargada", use_container_width=True)
 
     elif input_mode == "Tomar foto":
         if st.sidebar.button("Tomar foto"):
@@ -159,11 +158,11 @@ if selected2 == "Clasificador":
         confidence = np.max(predictions)
         st.write("### Clasificación de la imagen")
         # Mostrar el resultado
-        st.write(f"Predicción: **{predicted_class}**")
-        
+        #st.write(f"Predicción: **{predicted_class}**")
+
         # Mostrar un mensaje emergente con la clasificación
         if predicted_class == "Deepfake":
-            st.error(f"⚠️ ¡Cuidado! La imagen es Deepfake. Confianza: {confidence:.2%}")
+            st.error(f"⚠️ ¡Cuidado! La imagen es **Deepfake**. Confianza: {confidence:.2%}")
         else:
             st.success(f"✅ No te preocupes, la imagen es verdadera. Confianza: {confidence:.2%}")
 
@@ -171,6 +170,7 @@ if selected2 == "Clasificador":
         st.write("Generando explicaciones con LIME, por favor espere...")
         image_for_lime = image_array  # Imagen procesada para LIME
         temp, mask = apply_lime(image_for_lime, model)
+
 
         # Visualizar la explicación
         col1, col2 = st.columns(2)
@@ -199,6 +199,11 @@ elif selected2 == "Modelos":
         "Selecciona el modelo para ver su rendimiento:",
         ("VGG", "ResNet50", "Inception")
     )
+        # Mostrar descripción del modelo seleccionado
+    st.write(f"### Descripción detallada del modelo {option2}")
+    st.write(model_details[option2]["detailed_description"])
+    st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
+
 
 elif selected2 == "Explicación":
     st.title("DeepFake Face Detection Project")
