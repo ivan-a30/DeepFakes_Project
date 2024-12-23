@@ -121,7 +121,7 @@ if selected2 == "Clasificador":
     # Mostrar descripción del modelo seleccionado
     st.write(f"### Descripción detallada del modelo {option}")
     st.write(model_details[option]["detailed_description"])
-    st.image(model_details[option]["image"], caption=option, use_column_width=True)
+    st.image(model_details[option]["image"], caption=option, use_container_width=True)
 
     # Cargar el modelo correspondiente desde Google Drive
     model = load_model_from_drive(option)
@@ -162,10 +162,10 @@ if selected2 == "Clasificador":
         st.write(f"Predicción: **{predicted_class}**")
 
         # Mostrar un mensaje emergente con la clasificación
-        if predicted_class == "Deepfake":
-            st.error("¡Cuidado! La imagen es Deepfake.")
-        else:
-            st.success("No te preocupes, la imagen es verdadera.")
+        if predicted_class == \"Deepfake\":
+    st.dialog(\"¡Cuidado! La imagen es Deepfake.\")
+else:
+    st.dialog(\"No te preocupes, la imagen es verdadera.\")
 
         # Aplicar LIME
         st.write("Generando explicaciones con LIME, por favor espere...")
