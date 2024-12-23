@@ -121,7 +121,7 @@ if selected2 == "Clasificador":
     # Mostrar descripción del modelo seleccionado
     st.write(f"### Descripción detallada del modelo {option}")
     st.write(model_details[option]["detailed_description"])
-    st.image(model_details[option]["image"], caption=option, use_container_width=True)
+    st.image(model_details[option]["image"], caption=option, use_column_width=True)
 
     # Cargar el modelo correspondiente desde Google Drive
     model = load_model_from_drive(option)
@@ -139,7 +139,7 @@ if selected2 == "Clasificador":
         if uploaded_file is not None:
             # Mostrar la imagen cargada
             image = Image.open(uploaded_file)
-            st.sidebar.image(image, caption="Imagen cargada", use_container_width=True)
+            st.sidebar.image(image, caption="Imagen cargada", use_column_width=True)
 
     elif input_mode == "Tomar foto":
         if st.sidebar.button("Tomar foto"):
@@ -160,12 +160,12 @@ if selected2 == "Clasificador":
         st.write("### Clasificación de la imagen")
         # Mostrar el resultado
         st.write(f"Predicción: **{predicted_class}**")
-
+        
         # Mostrar un mensaje emergente con la clasificación
-        if predicted_class == \"Deepfake\":
-    st.error("⚠️ ¡Cuidado! La imagen es Deepfake.")
-else:
-    st.success("✅ No te preocupes, la imagen es verdadera.")
+        if predicted_class == "Deepfake":
+            st.error("⚠️ ¡Cuidado! La imagen es Deepfake. Confianza: {confidence:.2%}")
+        else:
+            st.success("✅ No te preocupes, la imagen es verdadera. Confianza: {confidence:.2%}")
 
         # Aplicar LIME
         st.write("Generando explicaciones con LIME, por favor espere...")
@@ -240,4 +240,3 @@ elif selected2 == "Explicación":
             """)
     st.write("- ResNet50")
     st.write("- Inception v3")
-
