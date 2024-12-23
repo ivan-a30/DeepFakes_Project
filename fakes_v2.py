@@ -162,7 +162,7 @@ if selected2 == "Clasificador":
         st.write(f"Predicción: **{predicted_class}**")
 
         # Mostrar un mensaje emergente con la clasificación
-        if predicted_class == \"Deepfake\":
+        if predicted_class == "Deepfake":
     st.dialog(\"¡Cuidado! La imagen es Deepfake.\")
 else:
     st.dialog(\"No te preocupes, la imagen es verdadera.\")
