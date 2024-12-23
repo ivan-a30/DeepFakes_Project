@@ -18,6 +18,7 @@ placeholder = st.empty()
 placeholder.text("Cargando modelo, por favor espere...")
 
 # Diccionario de enlaces de Google Drive para modelos
+
 model_drive_links = {
     "VGG": "<URL_DEL_MODELO_VGG>",  # Reemplaza con el enlace de Google Drive
     "ResNet50": "https://drive.google.com/uc?id=1F2PWzz968SgDgF_iXKhpcIWBUme1IkNv",  # Reemplaza con el enlace de Google Drive
@@ -93,7 +94,7 @@ def apply_lime(image_for_lime, model):
         predict_fn,
         top_labels=1,
         hide_color=0,
-        num_samples=1000
+        num_features=5
     )
 
     label = explanation.top_labels[0]
@@ -153,12 +154,18 @@ if selected2 == "Clasificador":
         predictions = model.predict(preprocessed_image)
 
         # Obtener el resultado
-        class_names = ["Real", "Deepfake"]
+        class_names = ["Deepfake", "Real"]
         predicted_class = class_names[np.argmax(predictions)]
         confidence = np.max(predictions)
         st.write("### Clasificación de la imagen")
         # Mostrar el resultado
         st.write(f"Predicción: **{predicted_class}**")
+
+        # Mostrar un mensaje emergente con la clasificación
+        if predicted_class == "Deepfake":
+            st.error("¡Cuidado! La imagen es Deepfake.")
+        else:
+            st.success("No te preocupes, la imagen es verdadera.")
 
         # Aplicar LIME
         st.write("Generando explicaciones con LIME, por favor espere...")
@@ -209,12 +216,12 @@ elif selected2 == "Explicación":
     st.image("Elon_musk.png")
 
     st.write("## Pasos realizados:")
-    st.write("### 1) Análisis EDA")
+    st.write("### 1. Análisis EDA")
     st.write("Nuestra principal preocupación es si los datos realmente están balanceados...")
     st.image("eda.png")
     st.write("")
     st.write("""
-             ### 2) Preparación del dataset
+             ### 2. Preparación del dataset
             Las imágenes originales tenían un tamaño de **256x256** en RGB 0-255. Para facilitar el entrenamiento de los modelos hemos reducido el tamaño de las imágenes\
              a 128x128 y normalizado los 3 canales para que estén entre **0-1**
             """)
@@ -226,11 +233,10 @@ elif selected2 == "Explicación":
             """)
     st.write("")
  
-    st.write("### 3) Entrenamiento de modelos")
+    st.write("### 3. Entrenamiento de modelos")
     st.write("""Una vez hecho el análisis EDA y el preprocesamiento de las imágenes pasaremos al entrenamiento de los modelos de clasificación.\
              Usaremos el transfer learning para importar estos modelos ya entrenados con las imágenes del dataset de ImageNet y congelaremos sus pesos. \
              Únicamente cambiaremos la parte del clasificador añadiendo capas densas y cambiando la función de activación final para nuestra clasificación.
             """)
     st.write("- ResNet50")
     st.write("- Inception v3")
-
