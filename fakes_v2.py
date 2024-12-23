@@ -207,6 +207,7 @@ elif selected2 == "Modelos":
     st.write(model_details[option2]["detailed_description"])
     st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
     st.image(model_details[option2]["accuracy"], caption="Gráfica de Accuracy para Inception", use_container_width=True)
+    st.image("https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN", caption="Gráfica de Accuracy para Inception", use_container_width=True)
 
 
 elif selected2 == "Explicación":
