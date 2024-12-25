@@ -1,0 +1,5 @@
+Description,Params,Memory
+Total params,"73,811,336",281.57 MB
+Trainable params,"24,585,732",93.79 MB
+Non-trainable params,"54,144",211.50 KB
+Optimizer params,"49,171,462",187.57 MB
