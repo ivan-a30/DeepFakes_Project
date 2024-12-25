@@ -238,6 +238,7 @@ elif selected2 == "Explicación":
     st.write("### 1. Análisis EDA")
     st.write("Nuestra principal preocupación es si los datos realmente están balanceados...")
     st.image("eda.png")
+    st.write("Podemos comprobar que efectivamente las clases estan balanceadas tanto en el conjunto train como en el validación.")
     st.write("")
     st.write("""
     ### 2. Preparación del dataset
