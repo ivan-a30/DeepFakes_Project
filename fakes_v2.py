@@ -222,7 +222,7 @@ elif selected2 == "Modelos":
 elif selected2 == "Explicación":
     st.title("DeepFake Face Detection Project")
     st.write("## Dataset:")
-    st.write("Este conjunto de datos contiene 70k imágenes de caras reales y 70k imágenes de caras generadas artificialmente mediante GAN. GAN es una red neuronal\
+    st.write("Este conjunto de datos contiene imágenes de caras reales e imágenes de caras generadas artificialmente mediante GAN. GAN es una red neuronal\
              generativa que permite la creación de datos sintéticos a partir de datos reales basándose en sus dos principales componentes: Generador y Discriminador.\
              El hecho de que las clases del dataset estén balanceadas nos facilitará mucho el trabajo. **¿Un humano puede diferenciar las siguientes imágenes?**")
     st.image("dataset_img.png")
@@ -240,16 +240,19 @@ elif selected2 == "Explicación":
     st.image("eda.png")
     st.write("")
     st.write("""
-             ### 2. Preparación del dataset
-            Las imágenes originales tenían un tamaño de **256x256** en RGB 0-255. Para facilitar el entrenamiento de los modelos hemos reducido el tamaño de las imágenes\
-             a 128x128 y normalizado los 3 canales para que estén entre **0-1**
-            """)
+    ### 2. Preparación del dataset
+    Las imágenes originales tenían un tamaño de **256x256** píxeles en formato RGB (valores entre 0 y 255). 
+    Para optimizar el entrenamiento de los modelos, hemos reducido el tamaño de las imágenes a **128x128** y 
+    normalizado los valores de los 3 canales RGB para que estén en el rango **0-1**.
+    """)
     st.image("pixeles.png")
     st.write("""
-            Analizando la gráfica podemos concluir que **hay una distribución suave y uniforme en los píxeles** intermedios que facilitarán el aprendizaje\ 
-            de nuestros modelos. Sin embargo también hay 2 outliers que serían los píxeles normalizados con un valor de 0 y 1... los cuales en el caso de un\
-            mal rendimiento de los modelos deberemos preprocesar.
-            """)
+    Al analizar la gráfica, observamos que **existe una distribución uniforme y suave en los valores de los píxeles intermedios**, 
+    lo cual facilita el aprendizaje de nuestros modelos. No obstante, también se identifican **2 valores atípicos (outliers)** 
+    correspondientes a los píxeles normalizados con valores de 0 y 1. En caso de observar un bajo rendimiento en los modelos, 
+    sería necesario ajustar el preprocesamiento para abordar este problema.
+    """)
+
     st.write("")
  
     st.write("### 3. Entrenamiento de modelos")
