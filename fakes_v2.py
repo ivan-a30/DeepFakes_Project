@@ -212,6 +212,7 @@ elif selected2 == "Modelos":
     st.write(f"### Descripción detallada del modelo {option2}")
     st.write(model_details[option2]["detailed_description"])
     st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
+    st.write(f"### Métricas y resultados")
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
    # st.image(model_details[option2]["accuracy"], caption="Gráfica de Accuracy para Inception", use_container_width=True)
