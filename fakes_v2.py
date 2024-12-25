@@ -32,7 +32,7 @@ model_details = {
         "image": "vgg16_image.png",
         "detailed_description": "El modelo VGG (Visual Geometry Group) utiliza una arquitectura de red neuronal convolucional con múltiples capas profundas, ideal para aplicaciones donde la precisión es fundamental. Fue introducido en 2014 y es ampliamente utilizado en tareas de visión por computadora.",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
-        "Matriz": "matriz_resnet.png"
+        "Matriz": "/modelos/matriz_resnet.png"
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
