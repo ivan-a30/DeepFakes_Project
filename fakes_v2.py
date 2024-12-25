@@ -32,7 +32,8 @@ model_details = {
         "image": "vgg16_image.png",
         "detailed_description": "El modelo VGG (Visual Geometry Group) utiliza una arquitectura de red neuronal convolucional con múltiples capas profundas, ideal para aplicaciones donde la precisión es fundamental. Fue introducido en 2014 y es ampliamente utilizado en tareas de visión por computadora.",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
-        "Matriz": "/modelos/matriz_resnet.png"
+        "Matriz": "matriz_resnet.png",
+        "metricas": "metricas_resnet.png"
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -40,7 +41,8 @@ model_details = {
         "detailed_description": "La principal característica de estos es que solucionan el problema del desvanecimiento del gradiente cuando als redes se hacen realmente profundas. Es decir, que cuando la red aprende y actualiza los pesos con backpropagation, una vez el gradiente llega a las primeras capas ya es tan pequeño que los pesos no se actualizan. Por eso el modelo deja de aprender. ResNet en pocas palabras genera un puente 'skip conections' para el gradiente que le permite llegar a las caoas mas internas.\nIntetamos llevarnos la imagen original para que esta no se olvide en las capas más profundas. Le añadimos unos ciertos residuos que la red considerar importante (diferencias entre la img pixelada y con buena resolución). De esta forma intentamos modelar esta diferencia.",
         "arquitectura": "arquitectura_resnet.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
-        "Matriz": "matriz_resnet.png"
+        "Matriz": "matriz_resnet.png",
+        "metricas": "metricas_resnet.png"
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -48,7 +50,8 @@ model_details = {
         "detailed_description": "La arquitectura Inception optimiza el rendimiento sin incrementar excesivamente la profundidad de las redes, lo que podría causar sobreajuste y alta carga computacional. Para lograrlo, combina convoluciones de diferentes tamaños (1x1, 3x3, 5x5) y max-pooling en una misma capa, capturando información local y global de la imagen simultáneamente.\nInicialmente, este diseño aumentaba significativamente los parámetros del modelo. Para mitigar esto, se introdujeron convoluciones 1x1 como preprocesamiento, reduciendo la dimensionalidad antes de aplicar filtros más grandes. Este enfoque reduce redundancias y mejora la eficiencia al disminuir los parámetros necesarios, manteniendo el ancho y alto de las matrices de características.",
         "arquitectura": "arquitectura_inception.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
-        "Matriz": "matriz_resnet.png"
+        "Matriz": "matriz_resnet.png",
+        "metricas": "metricas_resnet.png"
     }
 }
 
@@ -210,8 +213,9 @@ elif selected2 == "Modelos":
     st.write(model_details[option2]["detailed_description"])
     st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
-    st.image(model_details[option2]["accuracy"], caption="Gráfica de Accuracy para Inception", use_container_width=True)
-    st.image("https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN", caption="Gráfica de Accuracy para Inception", use_container_width=True)
+    st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
+   # st.image(model_details[option2]["accuracy"], caption="Gráfica de Accuracy para Inception", use_container_width=True)
+   # st.image("https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN", caption="Gráfica de Accuracy para Inception", use_container_width=True)
 
 
 elif selected2 == "Explicación":
