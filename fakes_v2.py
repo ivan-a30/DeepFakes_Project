@@ -213,8 +213,8 @@ elif selected2 == "Modelos":
     st.write(model_details[option2]["detailed_description"])
     st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
     st.write(f"### Métricas y resultados")
-    st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
+    st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
    # st.image(model_details[option2]["accuracy"], caption="Gráfica de Accuracy para Inception", use_container_width=True)
    # st.image("https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN", caption="Gráfica de Accuracy para Inception", use_container_width=True)
 
@@ -253,9 +253,17 @@ elif selected2 == "Explicación":
     st.write("")
  
     st.write("### 3. Entrenamiento de modelos")
-    st.write("""Una vez hecho el análisis EDA y el preprocesamiento de las imágenes pasaremos al entrenamiento de los modelos de clasificación.\
+    st.write("""
+            Una vez hecho el análisis EDA y el preprocesamiento de las imágenes pasaremos al entrenamiento de los modelos de clasificación.\
              Usaremos el transfer learning para importar estos modelos ya entrenados con las imágenes del dataset de ImageNet y congelaremos sus pesos. \
              Únicamente cambiaremos la parte del clasificador añadiendo capas densas y cambiando la función de activación final para nuestra clasificación.
+             Entrenaremos 10 épocas para cada modelo sobre el conjunto de train e iremos ajustando los parametros con el conjunto de validación.
             """)
-    st.write("- ResNet50")
-    st.write("- Inception v3")
+    st.write("### 4. Predicciones sobre el conjunto test")
+    st.write("""
+    En esta sección evaluaremos el rendimiento del modelo entrenado realizando predicciones sobre el conjunto de prueba. 
+    Analizaremos los resultados obtenidos para medir la precisión, sensibilidad, especificidad y otras métricas relevantes. 
+    Además, presentaremos ejemplos visuales de las predicciones realizadas para observar el desempeño del modelo frente a 
+    casos correctos y errores de clasificación.
+    """)
+
