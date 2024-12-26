@@ -39,7 +39,7 @@ model_details = {
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
-        "image": "ResBlock.png",
+        "image": "resnet_ss.png",
         "detailed_description": "La principal característica de estos es que solucionan el problema del desvanecimiento del gradiente cuando als redes se hacen realmente profundas. Es decir, que cuando la red aprende y actualiza los pesos con backpropagation, una vez el gradiente llega a las primeras capas ya es tan pequeño que los pesos no se actualizan. Por eso el modelo deja de aprender. ResNet en pocas palabras genera un puente 'skip conections' para el gradiente que le permite llegar a las caoas mas internas.\nIntetamos llevarnos la imagen original para que esta no se olvide en las capas más profundas. Le añadimos unos ciertos residuos que la red considerar importante (diferencias entre la img pixelada y con buena resolución). De esta forma intentamos modelar esta diferencia.",
         "arquitectura": "arquitectura_resnet.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
