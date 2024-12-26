@@ -62,7 +62,7 @@ model_details = {
         "metricas": "inception_training.png",
         "csvs": "layers_inception.csv",
         "params": "params_inception.csv",
-        "training": "inception_training.png",
+        "training": "inception_accuracy.png",
         "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
     }
 }
