@@ -52,11 +52,13 @@ model_details = {
         "params": "params_resnet_info.csv",
         "training": "resnet_training.png",
         "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables.",
-        "conclusiones": "El reporte de clasificación muestra que el modelo basado en ResNet50 tiene un desempeño sobresaliente, aunque ligeramente inferior al de Inception. La precisión, el recall y el F1-score son consistentemente altos, con valores de 0.99 en promedio. Sin embargo, se observan pequeñas diferencias entre las clases:
+        "conclusiones": """
+        El reporte de clasificación muestra que el modelo basado en ResNet50 tiene un desempeño sobresaliente, aunque ligeramente inferior al de Inception. La precisión, el recall y el F1-score son consistentemente altos, con valores de 0.99 en promedio. Sin embargo, se observan pequeñas diferencias entre las clases:
 
 Para la clase 0 (negativos), el modelo presenta un recall del 0.98, indicando que no detecta correctamente un pequeño número de ejemplos negativos.
 Para la clase 1 (positivos), el modelo tiene un recall del 0.99, lo que indica un mejor rendimiento en la detección de positivos.
-En la matriz de confusión, de los 20,000 ejemplos, el modelo clasifica correctamente 9814 negativos y 9925 positivos, pero comete 186 falsos positivos y 75 falsos negativos."
+En la matriz de confusión, de los 20,000 ejemplos, el modelo clasifica correctamente 9814 negativos y 9925 positivos, pero comete 186 falsos positivos y 75 falsos negativos.
+                        """
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
