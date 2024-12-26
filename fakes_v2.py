@@ -33,7 +33,8 @@ model_details = {
         "detailed_description": "El modelo VGG (Visual Geometry Group) utiliza una arquitectura de red neuronal convolucional con múltiples capas profundas, ideal para aplicaciones donde la precisión es fundamental. Fue introducido en 2014 y es ampliamente utilizado en tareas de visión por computadora.",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
-        "metricas": "metricas_resnet.png"
+        "metricas": "metricas_resnet.png",
+        "csv_1": "layer_info_resnet.png"
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -42,7 +43,8 @@ model_details = {
         "arquitectura": "arquitectura_resnet.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
-        "metricas": "metricas_resnet.png"
+        "metricas": "metricas_resnet.png",
+        "csv_1": "layer_info_resnet.png"
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -51,7 +53,8 @@ model_details = {
         "arquitectura": "arquitectura_inception.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
-        "metricas": "metricas_resnet.png"
+        "metricas": "metricas_resnet.png",
+        "csv_1": "layer_info_resnet.png"
     }
 }
 
@@ -212,6 +215,8 @@ elif selected2 == "Modelos":
     st.write(f"### Descripción detallada del modelo {option2}")
     st.write(model_details[option2]["detailed_description"])
     st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
+    df = pd.read_csv(model_details[option2]["csvs"])
+    st.dataframe(df)
     st.write(f"### Métricas y resultados")
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
