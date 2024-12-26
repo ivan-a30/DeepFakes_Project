@@ -36,7 +36,8 @@ model_details = {
         "metricas": "metricas_resnet.png",
         "csvs": "layers_resnet_info.csv",
         "params": "params_resnet_info.csv",
-        "training": "resnet_training.png"
+        "training": "resnet_training.png",
+        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -48,7 +49,8 @@ model_details = {
         "metricas": "metricas_resnet.png",
         "csvs": "layers_resnet_info.csv",
         "params": "params_resnet_info.csv",
-        "training": "resnet_training.png"
+        "training": "resnet_training.png",
+        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -56,11 +58,12 @@ model_details = {
         "detailed_description": "La arquitectura Inception optimiza el rendimiento sin incrementar excesivamente la profundidad de las redes, lo que podría causar sobreajuste y alta carga computacional. Para lograrlo, combina convoluciones de diferentes tamaños (1x1, 3x3, 5x5) y max-pooling en una misma capa, capturando información local y global de la imagen simultáneamente.\nInicialmente, este diseño aumentaba significativamente los parámetros del modelo. Para mitigar esto, se introdujeron convoluciones 1x1 como preprocesamiento, reduciendo la dimensionalidad antes de aplicar filtros más grandes. Este enfoque reduce redundancias y mejora la eficiencia al disminuir los parámetros necesarios, manteniendo el ancho y alto de las matrices de características.",
         "arquitectura": "arquitectura_inception.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
-        "Matriz": "matriz_resnet.png",
-        "metricas": "metricas_resnet.png",
-        "csvs": "layers_resnet_info.csv",
-        "params": "params_resnet_info.csv",
-        "training": "inception_training.png"
+        "Matriz": "matriz_inception.png",
+        "metricas": "inception_training.png",
+        "csvs": "layers_inception.csv",
+        "params": "params_inception.csv",
+        "training": "inception_training.png",
+        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
     }
 }
 
