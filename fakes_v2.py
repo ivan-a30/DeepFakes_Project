@@ -37,7 +37,8 @@ model_details = {
         "csvs": "layers_resnet_info.csv",
         "params": "params_resnet_info.csv",
         "training": "resnet_training.png",
-        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
+        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables.",
+        "conclusiones": ""
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -50,7 +51,12 @@ model_details = {
         "csvs": "layers_resnet_info.csv",
         "params": "params_resnet_info.csv",
         "training": "resnet_training.png",
-        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
+        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables.",
+        "conclusiones": "El reporte de clasificación muestra que el modelo basado en ResNet50 tiene un desempeño sobresaliente, aunque ligeramente inferior al de Inception. La precisión, el recall y el F1-score son consistentemente altos, con valores de 0.99 en promedio. Sin embargo, se observan pequeñas diferencias entre las clases:
+
+Para la clase 0 (negativos), el modelo presenta un recall del 0.98, indicando que no detecta correctamente un pequeño número de ejemplos negativos.
+Para la clase 1 (positivos), el modelo tiene un recall del 0.99, lo que indica un mejor rendimiento en la detección de positivos.
+En la matriz de confusión, de los 20,000 ejemplos, el modelo clasifica correctamente 9814 negativos y 9925 positivos, pero comete 186 falsos positivos y 75 falsos negativos."
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -63,7 +69,8 @@ model_details = {
         "csvs": "layers_model_image.csv",
         "params": "params_model_image.csv",
         "training": "inception_training.png",
-        "explicacion": "El modelo utiliza InceptionV3 como capa base para extraer características profundas, seguido de una capa de GlobalAveragePooling2D para reducir dimensiones, una capa densa con 512 unidades para aprender combinaciones abstractas, una capa de normalización por lotes para estabilizar el entrenamiento y una capa final de 2 unidades para clasificación binaria. Tiene 68,493,928 parámetros en total, de los cuales 22,819,490 son entrenables, aprovechando la potencia del transfer learning"
+        "explicacion": "El modelo utiliza InceptionV3 como capa base para extraer características profundas, seguido de una capa de GlobalAveragePooling2D para reducir dimensiones, una capa densa con 512 unidades para aprender combinaciones abstractas, una capa de normalización por lotes para estabilizar el entrenamiento y una capa final de 2 unidades para clasificación binaria. Tiene 68,493,928 parámetros en total, de los cuales 22,819,490 son entrenables, aprovechando la potencia del transfer learning",
+        "concluiones": "El reporte de clasificación muestra un desempeño sobresaliente del modelo basado en Inception. La precisión, el recall y el F1-score son de 0.99 para ambas clases (0 y 1), lo que indica que el modelo clasifica correctamente casi todos los ejemplos tanto positivos como negativos. Esto se refuerza en la matriz de confusión, donde el modelo clasifica correctamente 9868 negativos y 9886 positivos, con solo 132 falsos positivos y 114 falsos negativos en un total de 20,000 ejemplos. La precisión global es 99%, lo que demuestra que el modelo tiene un excelente equilibrio entre sensibilidad y especificidad. Este rendimiento lo hace adecuado para aplicaciones donde los errores deben ser mínimos."
     }
 }
 
@@ -235,8 +242,9 @@ elif selected2 == "Modelos":
     st.image(model_details[option2]["training"], caption="Training Accuracy", use_container_width=True)
     st.write(model_details[option2]["explicacion"])
     st.write(f"### Métricas y resultados")
-    st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
+    st.image(model_details[option2]["metricas"], caption="Metricas conjunto test", use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
+    st.write(model_details[option2]["Conclusiones"])
    # st.image(model_details[option2]["accuracy"], caption="Gráfica de Accuracy para Inception", use_container_width=True)
    # st.image("https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN", caption="Gráfica de Accuracy para Inception", use_container_width=True)
 
