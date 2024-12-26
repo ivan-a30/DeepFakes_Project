@@ -217,7 +217,7 @@ elif selected2 == "Modelos":
         # Mostrar descripción del modelo seleccionado
     st.write(f"### Descripción detallada del modelo {option2}")
     st.write(model_details[option2]["detailed_description"])
-    st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
+    st.image(model_details[option2]["image"], caption=option2, use_container_width=True, width=100)
 
     col1, col2 = st.columns(2)
     df = pd.read_csv(model_details[option2]["csvs"])
