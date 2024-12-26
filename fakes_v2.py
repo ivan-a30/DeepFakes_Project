@@ -59,10 +59,10 @@ model_details = {
         "arquitectura": "arquitectura_inception.png",
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_inception.png",
-        "metricas": "inception_training.png",
+        "metricas": "inception_accuracy.png",
         "csvs": "layers_inception.csv",
         "params": "params_inception.csv",
-        "training": "inception_accuracy.png",
+        "training": "inception_training.png",
         "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
     }
 }
@@ -232,7 +232,7 @@ elif selected2 == "Modelos":
         st.dataframe(df)
     with col2:
         st.dataframe(df2)
-    st.image(model_details[option2]["training"], caption="Matriz de confusion", use_container_width=True)
+    st.image(model_details[option2]["training"], caption="Training Accuracy", use_container_width=True)
     st.write(f"### Métricas y resultados")
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
