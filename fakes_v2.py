@@ -233,6 +233,7 @@ elif selected2 == "Modelos":
     with col2:
         st.dataframe(df2)
     st.image(model_details[option2]["training"], caption="Training Accuracy", use_container_width=True)
+    st.write(model_details[option2]["explicacion"])
     st.write(f"### Métricas y resultados")
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
