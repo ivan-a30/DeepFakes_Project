@@ -34,7 +34,8 @@ model_details = {
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
-        "csvs": "layers_resnet_info.csv"
+        "csvs": "layers_resnet_info.csv",
+        "params": "params_resnet_info.csv"
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -44,7 +45,8 @@ model_details = {
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
-        "csvs": "layers_resnet_info.csv"
+        "csvs": "layers_resnet_info.csv",
+        "params": "params_resnet_info.csv"
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -54,7 +56,8 @@ model_details = {
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
-        "csvs": "layers_resnet_info.csv"
+        "csvs": "layers_resnet_info.csv",
+        "params": "params_resnet_info.csv"
     }
 }
 
@@ -215,8 +218,14 @@ elif selected2 == "Modelos":
     st.write(f"### Descripción detallada del modelo {option2}")
     st.write(model_details[option2]["detailed_description"])
     st.image(model_details[option2]["image"], caption=option2, use_container_width=True)
+
+    col1, col2 = st.columns(2)
     df = pd.read_csv(model_details[option2]["csvs"])
-    st.dataframe(df)
+    df2 = pd.read_csv(model_details[option2]["params"])
+    with col1:
+        st.dataframe(df)
+    with col2:
+        st.dataframe(df2)
     st.write(f"### Métricas y resultados")
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
