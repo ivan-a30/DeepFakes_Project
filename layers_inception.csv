@@ -1,0 +1,6 @@
+Layer (type),Output Shape,Param #
+resnet50 (Functional),"(None, 7, 7, 2048)",73811336
+global_average_pooling2d_2 (GlobalAveragePooling2D),"(None, 2048)",0
+dense_4 (Dense),"(None, 512)",24585732
+batch_normalization_2 (BatchNormalization),"(None, 512)",54144
+dense_5 (Dense),"(None, 2)",49171462
