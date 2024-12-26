@@ -63,7 +63,7 @@ model_details = {
         "csvs": "layers_model_image.csv",
         "params": "params_model_image.csv",
         "training": "inception_training.png",
-        "explicacion": "El modelo utiliza ResNet50 como base para la extracción de características, seguido de una capa de pooling global para reducir dimensiones, una capa densa para aprendizaje no lineal, normalización por lotes para estabilizar el entrenamiento y una capa final para la clasificación. Tiene 73,811,336 parámetros, de los cuales 24,585,732 son entrenables."
+        "explicacion": "El modelo utiliza InceptionV3 como capa base para extraer características profundas, seguido de una capa de GlobalAveragePooling2D para reducir dimensiones, una capa densa con 512 unidades para aprender combinaciones abstractas, una capa de normalización por lotes para estabilizar el entrenamiento y una capa final de 2 unidades para clasificación binaria. Tiene 68,493,928 parámetros en total, de los cuales 22,819,490 son entrenables, aprovechando la potencia del transfer learning"
     }
 }
 
