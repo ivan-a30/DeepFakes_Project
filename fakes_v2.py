@@ -34,7 +34,7 @@ model_details = {
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
-        "csvs": "layer_info_resnet.png"
+        "csvs": "layer_info_resnet.csv"
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -44,7 +44,7 @@ model_details = {
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
-        "csvs": "layer_info_resnet.png"
+        "csvs": "layer_info_resnet.csv"
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -54,7 +54,7 @@ model_details = {
         "accuracy": "https://drive.google.com/uc?id=1HiLVunasCR23YGyPVlgdDnMDWk3-akoN",
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
-        "csvs": "layer_info_resnet.png"
+        "csvs": "layer_info_resnet.csv"
     }
 }
 
