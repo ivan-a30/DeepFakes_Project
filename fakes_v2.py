@@ -35,7 +35,8 @@ model_details = {
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
         "csvs": "layers_resnet_info.csv",
-        "params": "params_resnet_info.csv"
+        "params": "params_resnet_info.csv",
+        "training": "resnet_training.png"
     },
     "ResNet50": {
         "description": "ResNet50 es una red residual con 50 capas, ideal para evitar el problema del desvanecimiento del gradiente.",
@@ -46,7 +47,8 @@ model_details = {
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
         "csvs": "layers_resnet_info.csv",
-        "params": "params_resnet_info.csv"
+        "params": "params_resnet_info.csv",
+        "training": "resnet_training.png"
     },
     "Inception": {
         "description": "Inception utiliza bloques convolucionales modulares para lograr una gran precisión con menos parámetros.",
@@ -57,7 +59,8 @@ model_details = {
         "Matriz": "matriz_resnet.png",
         "metricas": "metricas_resnet.png",
         "csvs": "layers_resnet_info.csv",
-        "params": "params_resnet_info.csv"
+        "params": "params_resnet_info.csv",
+        "training": "inception_training.png"
     }
 }
 
@@ -226,6 +229,7 @@ elif selected2 == "Modelos":
         st.dataframe(df)
     with col2:
         st.dataframe(df2)
+    st.image(model_details[option2]["training"], caption="Matriz de confusion", use_container_width=True)
     st.write(f"### Métricas y resultados")
     st.image(model_details[option2]["metricas"], caption="Matriz de confusion", use_container_width=True)
     st.image(model_details[option2]["Matriz"], caption="Matriz de confusion", use_container_width=True)
